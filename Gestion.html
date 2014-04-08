@@ -13,112 +13,119 @@
 	
   </head>
   <body>
-<div class="row-fluid">
-  <div class="span12">
-    <h1><center>FacPush</center></h1>
-    <div class="row-fluid">
-      <div class="span6">
-         <ul class="nav nav-pills">
-	    	<li class="active">
-	    	   	<a href="#">Gestion</a>
-			</li>
-	  		<li><a href="./Historique.html">Historique</a></li>
-	 		<li><a href=" "">Statistiques</a></li>
-	 		<li><a href="#">Contact</a></li>
-		 </ul>
-      </div>
-      
-       <div class="span6">
-       <h1></h1>
-       </div>
-       
-      <div class="span6">
-      	<div class="tabbable"> <!-- Only required for left/right tabs -->
-  			<ul class="nav nav-tabs">
-    			<li class="active"><a href="#tab1" data-toggle="tab">Nouveau</a></li>
-    			<li><a href="#tab2" data-toggle="tab">Supprimer</a></li>
-  			</ul>
-  			<div class="span6">
-      			<h1></h1>
-      		</div>
-	  		<div class="tab-content">
-	    		<div class="tab-pane active" id="tab1">
-	    			<div class="row">
-			      		 <div class="col-xs-6 col-sm-3">
-				      		<div class="btn-group">
-							  <button class="btn">Catégorie</button>
-							  <button class="btn dropdown-toggle" data-toggle="dropdown">
-							    <span class="caret"></span>
-							  </button>
-							  <ul class="dropdown-menu">
-							    <li><a href="#">Action1</a></li>
-							    <li><a href="#">Action2</a></li>
-							  </ul>
+	<div class="row-fluid">
+		<!-- Barre d'en-tête -->
+		<nav class="navbar navbar-default" role="navigation">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		          <a class="navbar-brand">FacPush</a>
+		    </div>
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="#">Déconnexion</a></li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+	
+	  	<div class="span12">
+	    
+	    <!-- Barre de Menu -->
+	    <div class="row-fluid">
+	      <div class="span6">
+	         <ul class="nav nav-pills">
+		    	<li class="active"><a href="#">Gestion</a></li>
+		  		<li><a href="./Historique.html">Historique</a></li>
+		 		<li><a href="./Statistiques">Statistiques</a></li>
+		 		<li><a href="./Contact">Contact</a></li>
+			 </ul>
+	      </div><br>
+	      	
+	      <div class="span6">
+	      	<div class="tabbable"> <!-- Sous menu de création et suppression de push -->
+	  			<ul class="nav nav-tabs">
+	    			<li class="active"><a href="#tab1" data-toggle="tab">Nouveau</a></li>
+	    			<li><a href="#tab2" data-toggle="tab">Supprimer</a></li>
+	  			</ul><br>
+		  		<div class="tab-content">
+		  		
+	                <!-- Sous menu Nouveau push -->	  		
+		    		<div class="tab-pane active" id="tab1">
+		    			<div class="row">
+				      		 <div class="col-xs-6 col-sm-3">
+				      		 
+				      		    <!-- Liste déroulante choix de la catégorie -->
+					      		<div class="btn-group">
+								  <button class="btn">Catégorie</button>
+								  <button class="btn dropdown-toggle" data-toggle="dropdown">
+								    <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu">
+								    <li><a href="#">Action1</a></li>
+								    <li><a href="#">Action2</a></li>
+								  </ul>
+								</div>
+							</div>
+						</div><br>	
+						
+						<!-- Zone de saisie du titre -->
+	      				<div class="row">
+							<div class="col-xs-6 col-sm-3">
+								<input type="text" class="form-control" id="textareatitre" placeholder="Titre">
+							</div> 
+						</div>
+						<div class="span6">
+	      				<h1></h1>
+	      				</div>
+	      				<!-- Zone de saisie du message -->
+						<div class="row">
+							<div class="col-xs-6 col-sm-3">
+								<textarea id="textareacontenue" class="form-control" rows="10" cols="80">Votre message</textarea>
+							</div> 
+						</div><br>
+						<div class="row">
+							<div class="col-xs-6 col-sm-3">
+								<button class="btn btn-primary" type="submit">Envoyer 
+								<i class="icon-white icon-ok-sign"></i> </button>
+							</div> 
+						</div>									
+					</div>
+					
+					<!-- Sous menu Supprimer push -->
+			    	<div class="tab-pane" id="tab2">
+			     		
+			     		<div class="panel panel-default">
+						  <!-- Création du tableau -->
+						  <div class="panel-heading">Sélectionnez les push à supprimer</div>
+						  
+						  	<div class="table-responsive">
+							  <table class="table">
+							    <!-- En-tête du tableau -->
+								<tr>
+								  <th class="success">#</th>
+								  <th class="success">Date</th>
+								  <th class="success">Détail du push</th>
+								</tr>
+								<!-- Ligne détail du tableau -->
+								<tr>
+								  <td><input type="checkbox"></td>
+								  <td>08/04/2014</td>
+								  <td>Salut ça push</td>	
+								</tr>
+							  </table>
 							</div>
 						</div>
-					</div>	
-					
-					<div class="span6">
-      				<h1></h1>
-      				</div>
-      				<div class="row">
-						<div class="col-xs-6 col-sm-3">
-							<input type="text" class="form-control" placeholder="Titre">
-						</div> 
-					</div>
-					<div class="span6">
-      				<h1></h1>
-      				</div>
-					<div class="row">
-						<div class="col-xs-6 col-sm-3">
-							<textarea id="textareacontenue" class="form-control" rows="10" cols="80">Votre message</textarea>
-						</div> 
-					</div>
-					<div class="span6">
-      				<h1></h1>
-      				</div>	
-					<div class="row">
-						<div class="col-xs-6 col-sm-3">
-							<button class="btn btn-primary" type="submit">Envoyer 
-							<i class="icon-white icon-ok-sign"></i> </button>
-						</div> 
-					</div>									
-				</div>
-				
-		    	<div class="tab-pane" id="tab2">
-		     		
-		     		<div class="panel panel-default">
-					  <!-- Default panel contents -->
-					  <div class="panel-heading">Sélectionnez les push à supprimer</div>
-					  
-					  	<div class="table-responsive">
-						  <table class="table">
-							<tr>
-							  <th class="success">#</th>
-							  <th class="success">Date</th>
-							  <th class="success">Détail du push</th>
-							</tr>
-							<tr>
-							  <td><input type="checkbox"></td>
-							  <td>08/04/2014</td>
-							  <td>Détail du push</td>	
-							</tr>
-						  </table>
-						</div>
-					</div>
-					<button class="btn btn-primary" type="submit">Supprimer 
-							<i class="icon-white icon-ok-sign"></i> </button>
-		    	</div>
-		  	</div>
-		 </div>
-       </div>
-    </div>
-  </div>
-</div>
+						<button class="btn btn-primary" type="submit">Supprimer 
+								<i class="icon-white icon-ok-sign"></i> </button>
+			    	</div>
+			  	</div>
+			 </div>
+	       </div>
+	    </div>
+	  </div>
+	</div>
    
-	 
-	
-	  <!-- /container -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="libs/jquery/jquery-1.11.0.min.js"></script>
