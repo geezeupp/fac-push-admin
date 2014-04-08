@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>FacPush Contact</title>
+
+    <!-- Bootstrap -->
+    <link href="css/Admin.css" rel="stylesheet">
+	
+  </head>
+  <body>
+  
+	<!-- Barre d'en-tête -->
+	<div class="row-fluid">
+	
+		<nav class="navbar navbar-default" role="navigation">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		          <a class="navbar-brand">FacPush</a>
+		    </div>
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="#">Déconnexion</a></li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+	    
+	    <!-- Barre de Menu -->
+	  	<div class="span12">
+	    
+	    <div class="row-fluid">
+	      <div class="span6">
+	         <ul class="nav nav-pills">
+		    	<li><a href="./Gestion.html">Gestion</a></li>
+		  		<li><a href="./Historique.html">Historique</a></li>
+		 		<li><a href="./Statistiques.html">Statistiques</a></li>
+		 		<li class="active"><a href="#">Contact</a></li>
+			 </ul>
+	      </div><br>
+	      
+	      <div class="panel panel-default">
+				 <div class="panel-heading"><h3 class="text-center">Formulaire de contact</h3></div>
+						  
+					<div class="table-responsive">
+						<table class="table">
+							<!-- Ligne détail du tableau -->
+							<tr>
+							<td>
+							
+							<div class="container">
+								<div class="row">
+									<div class="col-sm-8">
+										<form>
+											<div class="row form-group">
+												<div class="col-xs-3">
+												<input id="Nom" class="form-control" type="text" name="Nom" value="Nom"></div>
+												<div class="col-xs-4">
+												<input id="Prenom" class="form-control" type="text" name="Prenom" value="Prénom"></div>
+											</div>
+											<div class="row form-group">
+												<div class="col-xs-5">
+												<input class="form-control" type="email" name="email" value="e-mail"></div>
+											</div>
+											<div class="row form-group">
+												<div class="col-xs-10"><textarea class="form-control" rows="5">Votre message</textarea></div>
+											</div>
+											<div class="row form-group">
+												<div class="col-xs-10"><button class="btn btn-default pull-right">Envoyer</button></div>
+											</div>
+										</form>
+									</div>
+									</div>
+								</div>
+							</td>
+							</tr>
+	       				</table>
+	       			</div>
+	       	 </div>		
+	       </div>
+	    </div>
+	</div>
+   
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="libs/jquery/jquery-1.11.0.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
