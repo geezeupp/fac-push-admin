@@ -17,14 +17,14 @@
   <body>
     <div class="container">
 
-      <form class="form-signin" role="form">
+      <form class="form-signin" role="form" id="signin">
         <h2 class="form-signin-heading">Please sign in</h2>
-        <input type="email" class="form-control" placeholder="Email address" required autofocus>
-        <input type="password" class="form-control" placeholder="Password" required>
-        <label class="checkbox">
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <input name= "email" id ="email" type="email" class="form-control" placeholder="Email address" required autofocus>
+        <input name= "password" id ="password" type="password" class="form-control" placeholder="Password" required>
+      
+        <button class="btn btn-lg btn-primary btn-block" type="button" onclick="return login()">Sign in</button>
+        
+         <button class="btn btn-lg btn-primary btn-block" type="button" onclick="return sendPush()">Send Push</button>
       </form>
 
     </div> <!-- /container -->
@@ -33,5 +33,7 @@
     <script src="libs/jquery/jquery-1.11.0.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/login-logout.js"></script>
+     <script src="js/rest-services.js"></script>
   </body>
 </html>
