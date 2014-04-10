@@ -4,8 +4,8 @@ function login(){
 	
 	var username = encodeURIComponent(document.getElementById("email").value);
 	var pass = encodeURIComponent( document.getElementById("password").value);
+	var errorMessage = "Oups!!! Combinaison email/mot de passe incrorrect.";
 	
-	// Variable to store data:
 		$.ajax({
 				type: "GET",
 				url: "https://api.parse.com/1/login?username="+username+"&password="+pass,
@@ -14,14 +14,17 @@ function login(){
 				headers:headers,
 				success: function (reponse, status, jqXHR) {
 							setSessionCookie("sessionToken", reponse.sessionToken, 1);
-							document.location.href = "pages/home.html";
+							document.location.href = "pages/gestion.html";
 						 },
 					 
-				error: function (jqXHR, status) {            
-							 
-						}
+				error: function (jqXHR, status) {  
+					$("#sign-in-error").empty();
+					var divError = '<div class="alert alert-danger">'+ errorMessage +'</div>';
+					$("#sign-in-error").append(divError);
+						
+				}
 
-				 });
+			});
 	 
 } 
 
@@ -50,7 +53,7 @@ function signUp(){
 } 
 
 function logout(){
-	if(confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+	if(confirm('Etes-vous sur de vouloir vous deconnecter ?')) {
 		deleteSessionCookie('sessionToken');
 		document.location.href="../index.html";
 	}

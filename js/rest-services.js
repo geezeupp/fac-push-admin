@@ -2,14 +2,11 @@ var headers = {"X-Parse-Application-Id":"gn23tgrg2J5EYgYJJqUW7tvlqCRRbULZZjuCv1d
 
 
 //send notification to all users in category
-function sendPush(/*channel, title, message*/){
+function sendPush(){
 	
-	//var title =  document.getElementById("titre").value;
-	//var message = document.getElementById("message").value;
-	
-	var title = "To a miagiste...";
-	var channel = "Miage";
-	
+	var title =  document.getElementById("title").value;
+	var channel = $('#category option:selected').val();
+
 	// Variable to store data:
 	var pushData = '{ "channels": ["'+channel+'"], "data": {"alert": "'+title+'" }}' ;
 	
@@ -21,14 +18,15 @@ function sendPush(/*channel, title, message*/){
 			    dataType: "json",
 				headers:headers,
 				success: function (data, status, jqXHR) {
-							alert('it works');
+						alert("Votre notification a été envoyée");
+						savePushNotification(title,channel);
 						 },
 					 
 				error: function (jqXHR, status) {            
 							 
 						}
-
 				 });
+		
 }
 
 
@@ -42,30 +40,24 @@ function getAllNotifications(){
 }
 
 
-function savePushNotification(channel){
-	
-	//var title =  document.getElementById("titre").value;
-	//var message = document.getElementById("message").value;
-	
-	var title = "To a miagiste...";
-	var channel = "Miage";
+function savePushNotification(title,channel){
+	var message = document.getElementById("message").value;
 	
 	// Variable to store data:
-	var pushData = '{ "channels": ["'+channel+'"], "data": {"alert": "'+title+'" }}' ;
-	
+	var pushData = '{ "title": "'+title+'", "message": "'+message+'", "channel": "'+channel+'" }';
 		$.ajax({
 				type: "POST",
-				url: "https://api.parse.com/classes/N otifications",
+				url: "https://api.parse.com/1/classes/push",
 				data: pushData,
 				contentType: "application/json; charset=utf-8",
 			    dataType: "json",
 				headers:headers,
 				success: function (data, status, jqXHR) {
-							alert('it works');
+							
 						 },
 					 
 				error: function (jqXHR, status) {            
-							 
+							 alert('error');
 						}
 
 				 });

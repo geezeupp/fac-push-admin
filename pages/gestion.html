@@ -9,7 +9,7 @@
     <title>FacPush Gestion</title>
 
     <!-- Bootstrap -->
-    <link href="css/Admin.css" rel="stylesheet">
+    <link href="../css/Admin.css" rel="stylesheet">
 	
   </head>
   <body>
@@ -23,7 +23,7 @@
 		    </div>
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav navbar-right">
-		        <li><a href="#">Déconnexion</a></li>
+		        <li><a onclick="return logout()">Déconnexion</a></li>
 		      </ul>
 		    </div>
 		  </div>
@@ -36,9 +36,9 @@
 	      <div class="span6">
 	         <ul class="nav nav-pills">
 		    	<li class="active"><a href="#">Gestion</a></li>
-		  		<li><a href="./Historique.html">Historique</a></li>
-		 		<li><a href="./Statistiques.html">Statistiques</a></li>
-		 		<li><a href="./Contact.html">Contact</a></li>
+		  		<li><a href="historique.html">Historique</a></li>
+		 		<li><a href="statistiques.html">Statistiques</a></li>
+		 		<li><a href="contact.html">Contact</a></li>
 			 </ul>
 	      </div><br>
 	      	
@@ -59,11 +59,11 @@
 			    			<div class="row">
 					      		 <div class="col-xs-6 col-sm-4">
 					      		    <!-- Liste déroulante choix de la catégorie -->
-									<select name="Catégorie" class="form-control" id="categorie" >
+									<select id="category" name="category" class="form-control" >
 									  <option value="Administration">Administration</option>
 									  <option value="Associations">Associations</option>
 									  <option value="Sport">Sport</option>
-									  <option value="Bibliotheque_universitaire">Bibliothèque universitaire</option>
+									  <option value="BU">Bibliothèque universitaire</option>
 									</select>					
   								</div>
 							</div><br>	
@@ -71,19 +71,18 @@
 							<!-- Zone de saisie du titre -->
 		      				<div class="row">
 								<div class="col-xs-6 col-sm-8">
-									<input type="text" class="form-control" id="textareatitre" placeholder="Titre">
+									<input type="text" class="form-control" id="title" placeholder="Titre">
 								</div> 
 							</div><br>
 		      				<!-- Zone de saisie du message -->
 							<div class="row">
 								<div class="col-xs-6 col-sm-8">
-									<textarea id="textareacontenue" class="form-control" rows="10" cols="80">Votre message</textarea>
+									<textarea id="message" class="form-control" rows="10" cols="80">Votre message</textarea>
 								</div> 
 							</div><br>
 							<div class="row">
 								<div class="col-xs-6 col-sm-3">
-									<button class="btn btn-primary" type="submit">Envoyer 
-									<i class="icon-white icon-ok-sign"></i> </button>
+									<button class="btn btn-primary" onclick="return sendPush()">Envoyer <i class="icon-white icon-ok-sign"></i> </button>
 								</div> 
 							</div>
 						</div>									
@@ -124,8 +123,10 @@
    
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="libs/jquery/jquery-1.11.0.min.js"></script>
+    <script src="../libs/jquery/jquery-1.11.0.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/login-logout.js"></script>
+    <script src="../js/rest-services.js"></script>
   </body>
 </html>
