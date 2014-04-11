@@ -10,6 +10,11 @@
 
     <!-- Bootstrap -->
     <link href="../css/Admin.css" rel="stylesheet">
+    <script src="../js/login-logout.js"></script>
+    <script src="../js/rest-services.js"></script>
+	<script type="text/javascript">
+      window.onpaint = preloadFunc();
+	</script>
 	
   </head>
   <body>
@@ -25,7 +30,7 @@
 		    </div>
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav navbar-right">
-		        <li><a href="#">Déconnexion</a></li>
+		        <li><a onclick="return logout()">Déconnexion</a></li>
 		      </ul>
 		    </div>
 		  </div>

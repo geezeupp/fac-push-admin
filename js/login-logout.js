@@ -13,7 +13,8 @@ function login(){
 			    dataType: "json",
 				headers:headers,
 				success: function (reponse, status, jqXHR) {
-							setSessionCookie("sessionToken", reponse.sessionToken, 1);
+							setSessionCookie('sessionToken', reponse.sessionToken, 1);
+							sessionToken = reponse.sessionToken;
 							document.location.href = "pages/gestion.html";
 						 },
 					 
@@ -57,10 +58,11 @@ function logout(){
 		deleteSessionCookie('sessionToken');
 		document.location.href="../index.html";
 	}
+	
 }
 
 
-function setSessionCookie(cookieName,cookie,days){
+function setSessionCookie(name,cookie,days){
 	var expires = "";
 	if (days) {
 		var date = new Date();
@@ -71,6 +73,46 @@ function setSessionCookie(cookieName,cookie,days){
 	
 }
 
-function deleteSessionCookie(cookieName){
+function deleteSessionCookie(name){
 	setSessionCookie(name,"",-1);
 }
+
+function checkSession(){
+	var sessionCookie = getCookie('sessionToken');
+	if(sessionCookie == null){
+		document.location.href="../index.html";
+	}
+	
+}
+
+
+function getCookie(name){
+ 
+	if(document.cookie.length == 0){
+		return null;
+	}
+		
+	var regSepCookie = new RegExp('(; )', 'g');
+	
+	var cookies = document.cookie.split(regSepCookie);
+	for(var i = 0; i < cookies.length; i++){
+		var regInfo = new RegExp('=', 'g');
+		var infos = cookies[i].split(regInfo);
+		if(infos[0] == name){
+		return unescape(infos[1]);
+		}
+	}
+		return null;
+}
+
+function preloadFunc()
+{
+    checkSession();
+}
+
+
+
+
+
+
+
