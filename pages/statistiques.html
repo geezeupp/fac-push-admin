@@ -12,6 +12,7 @@
     <link href="../css/Admin.css" rel="stylesheet">
 	<script src="../js/login-logout.js"></script>
     <script src="../js/rest-services.js"></script>
+    <script src="../js/utils.js"></script>
 	<script type="text/javascript">
       window.onpaint = preloadFunc();
 	</script>
@@ -41,10 +42,10 @@
 	    <div class="row-fluid">
 	      <div class="span6">
 	         <ul class="nav nav-pills">
-		    	<li><a href="gestion.html">Gestion</a></li>
-		  		<li><a href="historique.html">Historique</a></li>
-		 		<li class="active"><a href="#">Statistiques</a></li>
-		 		<li><a href="contact.html">Contact</a></li>
+		    	<li><a onclick="return getLink('gestion.html')">Gestion</a></li>
+		  		<li><a onclick="return getLink('historique.html')">Historique</a></li>
+		 		<li class="active"><a onclick="return getLink('statistiques.html')">Statistiques</a></li>
+		 		<li><a onclick="return getLink('contact.html')">Contact</a></li>
 			 </ul>
 	      </div><br>
 	      
