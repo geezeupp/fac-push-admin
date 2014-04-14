@@ -15,7 +15,8 @@ function login(){
 				success: function (reponse, status, jqXHR) {
 							setSessionCookie('sessionToken', reponse.sessionToken, 1);
 							sessionToken = reponse.sessionToken;
-							document.location.href = "pages/gestion.html";
+							channel = reponse.channel;
+							document.location.href = "pages/gestion.html?channel="+channel;
 						 },
 					 
 				error: function (jqXHR, status) {  
@@ -32,9 +33,10 @@ function login(){
 function signUp(){
 	var email =  document.getElementById("email").value;
 	var pass = document.getElementById("password").value;
+	var channel = $('#category option:selected').val();
 	
 	// Variable to store data:
-	var data = '{ "username": "'+email+'", "password": "'+pass+'" }';
+	var data = '{ "username": "'+email+'", "password": "'+pass+'", "channel": "'+channel+'" }';
 		$.ajax({
 				type: "POST",
 				url: "https://api.parse.com/1/users",
