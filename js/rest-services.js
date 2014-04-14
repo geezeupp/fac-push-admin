@@ -31,12 +31,42 @@ function sendPush(){
 
 
 function getAllNotificationsForChannel(channel){
-	
+	$.ajax({
+		type: "GET",
+		url: "https://api.parse.com/1/classes/push",
+		//data: pushData,
+		contentType: "application/json; charset=utf-8",
+	    dataType: "json",
+		headers:headers,
+		success: function (data, status, jqXHR) {
+				alert("Données reçues");
+				alert(data);
+				 },
+			 
+		error: function (jqXHR, status) {            
+				alert('error');	 
+				}
+		 });
 }
 
-
 function getAllNotifications(){
-	
+	$.ajax({
+		type: "GET",
+		url: "https://api.parse.com/1/classes/push",
+		contentType: "application/json; charset=utf-8",
+	    dataType: "json",
+		headers:headers,
+		success: function (data, status, jqXHR) {
+				alert("Données reçues");
+				var obj = jQuery.parseJSON(data);
+				
+				alert(obj.results[1].title);
+		},
+			 
+		error: function (jqXHR, status) {            
+				alert('error');	 
+				}
+		 });
 }
 
 
@@ -67,3 +97,4 @@ function savePushNotification(title,channel){
 function subscribeToChannel(channel){
 	
 }
+
