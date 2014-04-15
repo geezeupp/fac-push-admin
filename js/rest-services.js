@@ -33,15 +33,18 @@ function sendPush(){
 function getAllNotificationsForChannel(channel){
 	$.ajax({
 		type: "GET",
-		url: "https://api.parse.com/1/classes/push",
-		//data: pushData,
+		url: 'https://api.parse.com/1/classes/push?where={"channel":"'+channel+'"}',
 		contentType: "application/json; charset=utf-8",
 	    dataType: "json",
 		headers:headers,
 		success: function (data, status, jqXHR) {
-				alert("Données reçues");
-				alert(data);
-				 },
+			
+			for(var i in data.results){
+				var Push = '<tr><td><input type="checkbox" name=checksupp id='+data.results[i].objectId+'></td><td>'+data.results[i].updatedAt.substring(0,10)+
+				'</td><td>'+data.results[i].updatedAt.substring(11,19)+'</td><td>'+ data.results[i].title + '</td></tr>';
+				$("#delete-push").append(Push);
+			}	            
+		},
 			 
 		error: function (jqXHR, status) {            
 				alert('error');	 
@@ -57,14 +60,37 @@ function getAllNotifications(){
 	    dataType: "json",
 		headers:headers,
 		success: function (data, status, jqXHR) {
-				alert("Données reçues");
-				var obj = jQuery.parseJSON(data);
-				
-				alert(obj.results[1].title);
+			
+			for(var i in data.results){
+				var deletePush = '<tr><td><input type="checkbox" id='+data.results[i].objectId+'></td><td>'+data.results[i].updatedAt.substring(0,10)+
+				'</td><td>'+data.results[i].updatedAt.substring(11,19)+'</td><td>'+ data.results[i].title + '</td></tr>';
+				$("#delete-push").append(deletePush);
+			}	            
 		},
 			 
 		error: function (jqXHR, status) {            
 				alert('error');	 
+				}
+		 });
+}
+
+function getAllNotificationsForChannelHisto(channel){
+	$.ajax({
+		type: "GET",
+		url: 'https://api.parse.com/1/classes/push?where={"channel":"'+channel+'"}',
+		contentType: "application/json; charset=utf-8",
+	    dataType: "json",
+		headers:headers,
+		success: function (data, status, jqXHR) {
+			for(var i in data.results){
+				var Push = '<tr><td>'+data.results[i].updatedAt.substring(0,10)+
+				'</td><td>'+data.results[i].updatedAt.substring(11,19)+'</td><td>'+ data.results[i].title + '</td></tr>';
+				$("#historique-push").append(Push);
+			}	            
+		},
+			 
+		error: function (jqXHR, status) {            
+				alert('errorhisto');	 
 				}
 		 });
 }
@@ -93,6 +119,42 @@ function savePushNotification(title,channel){
 				 });
 	
 }
+
+function deletePush(){
+	
+	$("input[type='checkbox']:checked").each(
+	          function() {
+	           alert(($(this).attr('id')));
+	           
+	           $.ajax({
+					type: "POST",
+					url: "https://api.parse.com/1/classes/push",
+					data: pushData,
+					contentType: "application/json; charset=utf-8",
+				    dataType: "json",
+					headers:headers,
+					success: function (data, status, jqXHR) {
+								
+							 },
+						 
+					error: function (jqXHR, status) {            
+								 alert('error');
+							}
+
+					 });
+	           
+	           
+	           
+	           
+	           
+	           
+	           
+	           
+	           
+	           
+	          });          
+}
+
 
 function subscribeToChannel(channel){
 	

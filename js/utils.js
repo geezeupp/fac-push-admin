@@ -26,5 +26,5 @@
 		document.location.href = link;
 	}
 	
-	
+	 
 	
