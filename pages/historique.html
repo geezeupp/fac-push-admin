@@ -7,6 +7,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>FacPush Historique</title>
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../libs/jquery/jquery-1.11.0.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../libs/bootstrap/js/bootstrap.min.js"></script>
 
    <!-- Bootstrap -->
     <link href="../css/Admin.css" rel="stylesheet">
@@ -15,6 +20,10 @@
     <script src="../js/utils.js"></script>
 	<script type="text/javascript">
       window.onpaint = preloadFunc();
+      $(document).ready(function(){ 
+    	  var channel = location.search.substring(9,location.search.length);
+    	  getAllNotificationsForChannelHisto(channel);	    
+      }); 
 	</script>
   </head>
   <body>
@@ -55,77 +64,14 @@
 				 <div class="panel-heading">Historique des push envoyés</div>
 						  
 					<div class="table-responsive">
-						<table class="table">
+						<table class="table" id="historique-push">
 							<!-- En-tête du tableau -->
 							<tr>
-							<th class="success">Date</th>
-							<th class="success">Détail du push</th>
+								<th class="success">Date</th>
+								<th class="success">Heure</th>
+								<th class="success">Détail du push</th>
 							</tr>
 							<!-- Ligne détail du tableau -->
-							<tr>
-							<td>08/04/2014</td>
-							<td>Salut ça push</td>	
-							</tr>
-							<tr>
-							<td>08/04/2014</td>
-							<td>Salut ça push</td>	
-							</tr>
-							<tr>
-							<td>08/04/2014</td>
-							<td>Salut ça push</td>	
-							</tr>
-							<tr>
-							<td>08/04/2014</td>
-							<td>Salut ça push</td>	
-							</tr>
-							<tr>
-							<td>08/04/2014</td>
-							<td>Salut ça push</td>	
-							</tr>
-							<tr>
-							<td>08/04/2014</td>
-							<td>Salut ça push</td>	
-							</tr>
-							<tr>
-							<td>08/04/2014</td>
-							<td>Salut ça push</td>	
-							</tr>
-							<tr>
-							<td>08/04/2014</td>
-							<td>Salut ça push</td>	
-							</tr>
-							<tr>
-							<td>08/04/2014</td>
-							<td>Salut ça push</td>	
-							</tr>
-							<tr>
-							<td>08/04/2014</td>
-							<td>Salut ça push</td>	
-							</tr>
-							<tr>
-							<td>08/04/2014</td>
-							<td>Salut ça push</td>	
-							</tr>
-							<tr>
-							<td>08/04/2014</td>
-							<td>Salut ça push</td>	
-							</tr>
-							<tr>
-							<td>08/04/2014</td>
-							<td>Salut ça push</td>	
-							</tr>
-							<tr>
-							<td>08/04/2014</td>
-							<td>Salut ça push</td>	
-							</tr>
-							<tr>
-							<td>08/04/2014</td>
-							<td>Salut ça push</td>	
-							</tr>
-							<tr>
-							<td>08/04/2014</td>
-							<td>Salut ça push</td>	
-							</tr>
 							
 						</table>
 					</div>
@@ -133,11 +79,5 @@
 	       </div>
 	    </div>
 	</div>
-   
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="../libs/jquery/jquery-1.11.0.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../libs/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>

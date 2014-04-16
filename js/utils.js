@@ -25,6 +25,27 @@
 		var link = page + '?channel='+getChannel();
 		document.location.href = link;
 	}
+	 
+	function checkAll(){
+		  $(":checkbox").attr('checked', true);
+	}
 	
+	function uncheckAll(){
+		  $(":checkbox").attr('checked', false);
+	}
 	
-	
+	function stats(){
+		
+		Parse.initialize("gn23tgrg2J5EYgYJJqUW7tvlqCRRbULZZjuCv1de", "PsXafGcxmjODZ7jMORmMO9A01GwQlPUZrelHvofV");
+		  
+		  var dimensions = {
+			// What type of news is this? 
+			category: 'politics',
+			// Is it a weekday or a weekend?
+			dayType: 'weekday'
+			};
+			//Send the dimensions to Parse along with the 'search' event
+			
+			Parse.Analytics.track('read', dimensions)
+		
+	}

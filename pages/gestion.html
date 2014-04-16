@@ -22,8 +22,10 @@
       window.onpaint = preloadFunc();
       $(document).ready(function(){ 
     	  $("#user-channel").attr("placeholder", getChannel());
-    	 
+    	  var channel = $("#user-channel").attr('placeholder');
+    	  getAllNotificationsForChannel(channel);	    	 
     	});
+      
 	</script>
   </head>
   <body>
@@ -75,7 +77,7 @@
 						      		    <div class="form-group">
 						      		    	<div class="col-xs-6 col-sm-6">
 										   		 <label for="user-channel">Catégorie de diffusion :
-										   		  <input type="text" id="user-channel" class="form-control" placeholder=dd>
+										   		  <input type="text" id="user-channel" class="form-control" placeholder=All>
 										   		 </label>
 										    </div>
 										</div>	
@@ -102,29 +104,22 @@
 						</div>									
 					</div>
 					<!-- Sous menu Supprimer push -->
-			    	<div class="tab-pane" id="tab2" >
+			    	<div class="tab-pane" id="tab2" id = "delete" >
 			     	  <div class="col-sm-8">	
 				     		<div class="panel panel-default">
 							  <!-- Création du tableau -->
-							  <div class="panel-heading">Sélectionnez les push à supprimer</div>
+							  <div class="panel-heading">Sélectionnez les push à supprimer
+							  		<button class="btn btn-default" type="submit" onclick="checkAll()">Tout cocher</button>
+									<button class="btn btn-default" type="submit" onclick="uncheckAll()">Tout décocher</button>
+								</div>
 							  	<div class="table-responsive">
-								  <table class="table">
-								    <!-- En-tête du tableau -->
-									<tr>
-									  <th class="success">#</th>
-									  <th class="success">Date</th>
-									  <th class="success">Détail du push</th>
-									</tr>
-									<!-- Ligne détail du tableau -->
-									<tr>
-									  <td><input type="checkbox"></td>
-									  <td>08/04/2014</td>
-									  <td>Salut ça push</td>	
-									</tr>
+								  <table class="table" id = "delete-push">
+								    <!-- Tableau -->
+									
 								  </table>
 								</div>
 							</div>
-							<button class="btn btn-primary" type="submit">Supprimer 
+							<button class="btn btn-primary" type="submit" onclick="return delete_p()">Supprimer 
 									<i class="icon-white icon-ok-sign"></i> </button>
 				    	</div>
 			    	</div>
@@ -134,8 +129,5 @@
 	    </div>
 	  </div>
 	</div>
-   
-
-    
   </body>
 </html>
