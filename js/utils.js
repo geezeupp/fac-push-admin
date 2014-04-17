@@ -46,6 +46,6 @@
 			};
 			//Send the dimensions to Parse along with the 'search' event
 			
-			Parse.Analytics.track('read', dimensions)
+			Parse.Analytics.track('read', dimensions);
 		
 	}

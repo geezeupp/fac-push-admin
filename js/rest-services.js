@@ -37,9 +37,10 @@ function getAllNotificationsForChannel(channel){
 	    dataType: "json",
 		headers:headers,
 		success: function (data, status, jqXHR) {
-			var head ='<tr><th class="success">#</th><th class="success">Date</th><th class="success">Heure</th><th class="success">Detail du push</th></tr>'
+			var head ='<tr><th class="success">#</th><th class="success">Date</th><th class="success">Heure</th><th class="success">Detail du push</th></tr>';
 				$("#delete-push").append(head);
-				for(var i in data.results){
+			
+			for(var i in data.results){
 				var Push = '<tr><td><input type="checkbox" name=checksupp id='+data.results[i].objectId+'></td><td>'+data.results[i].updatedAt.substring(0,10)+
 				'</td><td>'+data.results[i].updatedAt.substring(11,19)+'</td><td>'+ data.results[i].title + '</td></tr>';
 				$("#delete-push").append(Push);
@@ -132,7 +133,7 @@ function deletePush(){
 				    dataType: "json",
 					headers:headers,
 					success: function (data, status, jqXHR) {
-								alert('Les push ont été supprimés avec succès !')
+								alert('Les push ont été supprimés avec succès !');
 							 },
 						 
 					error: function (jqXHR, status) {            
@@ -164,6 +165,7 @@ function getUsers(channel){
 				}
 		 });
 }
+
 
 function subscribeToChannel(channel){
 	
