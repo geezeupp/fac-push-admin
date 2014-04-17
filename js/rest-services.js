@@ -133,7 +133,6 @@ function deletePush(){
 				    dataType: "json",
 					headers:headers,
 					success: function (data, status, jqXHR) {
-								alert('Les push ont été supprimés avec succès !');
 							 },
 						 
 					error: function (jqXHR, status) {            
@@ -141,10 +140,10 @@ function deletePush(){
 							}
 
 					 });
-	          });    
+	          });   
 }
 
-function getUsers(channel){
+/*function getUsers(channel){
 	$.ajax({
 		type: "GET",
 		url: 'https://api.parse.com/1/installations',
@@ -164,21 +163,23 @@ function getUsers(channel){
 				alert('errorstats');	 
 				}
 		 });
-}
+}*/
 
 
 function subscribeToChannel(channel){
 	
 }
 
-function actualise_div() {
-	$("#delete").show();
+function actualise_div(channel) {
+	
+	  document.getElementById('delete-push').innerHTML=""; 
+	  getAllNotificationsForChannel(channel);	
 }
 
 function delete_p(){
-	
+	 
 	deletePush();
-	actualise_div();
-	
+	setTimeout(function(){alert('Les pushs ont été supprimés avec succès !');},800);
+	setTimeout(function(){actualise_div(channel);},1500);
 
 }

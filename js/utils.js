@@ -34,18 +34,40 @@
 		  $(":checkbox").attr('checked', false);
 	}
 	
-	function stats(){
-		
-		Parse.initialize("gn23tgrg2J5EYgYJJqUW7tvlqCRRbULZZjuCv1de", "PsXafGcxmjODZ7jMORmMO9A01GwQlPUZrelHvofV");
-		  
-		  var dimensions = {
-			// What type of news is this? 
-			category: 'politics',
-			// Is it a weekday or a weekend?
-			dayType: 'weekday'
-			};
-			//Send the dimensions to Parse along with the 'search' event
-			
-			Parse.Analytics.track('read', dimensions);
+	function stats(channel){
+		$.ajax({
+			type: "GET",
+			url: 'https://api.parse.com/1/classes/push?where={"channel":"'+channel+'"}',
+			contentType: "application/json; charset=utf-8",
+		    dataType: "json",
+			headers:headers,
+			success: function (data, status, jqXHR) {
+				
+				nb = 0;
+				var myDate=new Date(); 
+				mois = myDate.getMonth()+1;
+				annee = myDate.getFullYear();
+
+				for(var i in data.results){
+					
+					resultmois = data.results[i].updatedAt.substring(5,7);
+					resultannee = data.results[i].updatedAt.substring(0,4);
+
+					if((resultmois==mois) && (resultannee==annee)){
+						nb+=1;
+					}
+				}	 
+				
+				var head ='<tr><th class="success">Intitul&eacute</th><th class="success">Nombre</th></tr>';
+				$("#stats").append(head);
+				
+				var detail ='<tr><td>Nombre de push envoy&eacutes ce mois-ci</td><td>'+nb+'</td></tr>';
+				$("#stats").append(detail);
+			},
+				 
+			error: function (jqXHR, status) {            
+					alert('errorstats');	 
+					}
+			 });
 		
 	}
