@@ -84,7 +84,8 @@ sub {
   bottom: -.25em;
 }
 img {
-  border: 0;
+	border: 0;
+	margin-top: 0px;
 }
 svg:not(:root) {
   overflow: hidden;
@@ -305,7 +306,8 @@ figure {
   margin: 0;
 }
 img {
-  vertical-align: middle;
+	vertical-align: middle;
+	margin-top: -15px;
 }
 .img-responsive,
 .thumbnail > img,
@@ -755,10 +757,12 @@ pre code {
   }
 }
 .container-fluid {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #428bca;
+	color: #FFF;
 }
 .row {
   margin-right: -15px;
@@ -1514,7 +1518,7 @@ table th[class*="col-"] {
 .table > thead > tr.success > th,
 .table > tbody > tr.success > th,
 .table > tfoot > tr.success > th {
-  background-color: #dff0d8;
+	background-color: #C4D7ED;
 }
 .table-hover > tbody > tr > td.success:hover,
 .table-hover > tbody > tr > th.success:hover,
@@ -3701,8 +3705,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .container-fluid > .navbar-header,
   .container > .navbar-collapse,
   .container-fluid > .navbar-collapse {
-    margin-right: 0;
-    margin-left: 0;
+	margin-right: 0;
+	margin-left: 0;
+	color: #FFF;
   }
 }
 .navbar-static-top {
@@ -3946,19 +3951,20 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #5e5e5e;
-  background-color: transparent;
+	color: #FFF;
+	background-color: #428bca;
+	margin-top: 0px;
 }
 .navbar-default .navbar-text {
   color: #777;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #777;
+  color: #FFF;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #333;
-  background-color: transparent;
+	color: #FFF;
+	background-color: #428bca;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
