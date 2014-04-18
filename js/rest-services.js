@@ -37,6 +37,9 @@ function getAllNotificationsForChannel(channel){
 	    dataType: "json",
 		headers:headers,
 		success: function (data, status, jqXHR) {
+			
+			sortResults('data.results.updatedAt', true);
+			
 			var head ='<tr><th class="success">#</th><th class="success">Date</th><th class="success">Heure</th><th class="success">Detail du push</th></tr>';
 				$("#delete-push").append(head);
 			
@@ -182,4 +185,11 @@ function delete_p(){
 	setTimeout(function(){alert('Les pushs ont été supprimés avec succès !');},800);
 	setTimeout(function(){actualise_div(channel);},1500);
 
+}
+
+function sortResults(prop, asc) {
+    results = results.sort(function(a, b) {
+        if (asc) return (a[prop] > b[prop]) ? 1 : ((a[prop] < b[prop]) ? -1 : 0);
+        else return (b[prop] > a[prop]) ? 1 : ((b[prop] < a[prop]) ? -1 : 0);
+    });
 }
