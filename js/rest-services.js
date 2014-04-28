@@ -7,7 +7,7 @@ function sendPush(){
 	var title =  document.getElementById("title").value;
 	var channel = location.search.substring(9,location.search.length);
 	// Variable to store data:
-	var pushData = '{ "channels": ["'+channel+'"], "data": {"alert": "'+title+'" }}' ;
+	var pushData = '{ "channels": ["'+channel+'"], "data": {"alert": "['+channel+'] '+title+'" }}' ;
 	
 		$.ajax({
 				type: "POST",
@@ -38,7 +38,7 @@ function getAllNotificationsForChannel(channel){
 		headers:headers,
 		success: function (data, status, jqXHR) {
 			
-			sortResults('data.results.updatedAt', true);
+			data.results.sort(SortByName);
 			
 			var head ='<tr><th class="success">#</th><th class="success">Date</th><th class="success">Heure</th><th class="success">Detail du push</th></tr>';
 				$("#delete-push").append(head);
@@ -65,6 +65,8 @@ function getAllNotifications(){
 		headers:headers,
 		success: function (data, status, jqXHR) {
 			
+			data.results.sort(SortByName);
+			
 			for(var i in data.results){
 				var deletePush = '<tr><td><input type="checkbox" id='+data.results[i].objectId+'></td><td>'+data.results[i].updatedAt.substring(0,10)+
 				'</td><td>'+data.results[i].updatedAt.substring(11,19)+'</td><td>'+ data.results[i].title + '</td></tr>';
@@ -86,6 +88,9 @@ function getAllNotificationsForChannelHisto(channel){
 	    dataType: "json",
 		headers:headers,
 		success: function (data, status, jqXHR) {
+			
+			data.results.sort(SortByName);
+			
 			for(var i in data.results){
 				var Push = '<tr><td>'+data.results[i].updatedAt.substring(0,10)+
 				'</td><td>'+data.results[i].updatedAt.substring(11,19)+'</td><td>'+ data.results[i].title + '</td></tr>';
@@ -187,9 +192,6 @@ function delete_p(){
 
 }
 
-function sortResults(prop, asc) {
-    results = results.sort(function(a, b) {
-        if (asc) return (a[prop] > b[prop]) ? 1 : ((a[prop] < b[prop]) ? -1 : 0);
-        else return (b[prop] > a[prop]) ? 1 : ((b[prop] < a[prop]) ? -1 : 0);
-    });
-}
+function SortByName(x,y) {
+    return ((x.createdAt == y.createdAt) ? 0 : ((x.createdAt < y.createdAt) ? 1 : -1 ));
+  }
