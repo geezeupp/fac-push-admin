@@ -16,6 +16,13 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../libs/bootstrap/js/bootstrap.min.js"></script>
 
+	<!-- Graph -->
+	<script src="../js/canvasjs.min.js"></script>
+
+
+
+
+
     <!-- Bootstrap -->
     <link href="../css/Admin.css" rel="stylesheet">
 	<script src="../js/login-logout.js"></script>
@@ -26,6 +33,7 @@
       $(document).ready(function(){ 
     	  var channel = location.search.substring(9,location.search.length);
     	  stats(channel);
+    	  graph();
     	});
 	</script>
   </head>
@@ -71,6 +79,10 @@
 							<!-- En-tête du tableau -->
 	       				</table>
 	       			</div>
+	       			
+	       			  <div id="chartContainer" style="height: 300px; width: 100%;">
+  					  </div>
+	       			
 	       		</div>	
 	       	 </div>		
 	       </div>

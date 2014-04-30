@@ -38,7 +38,7 @@ function getAllNotificationsForChannel(channel){
 		headers:headers,
 		success: function (data, status, jqXHR) {
 			
-			data.results.sort(SortByName);
+			data.results.sort(sortByDate);
 			
 			var head ='<tr><th class="success">#</th><th class="success">Date</th><th class="success">Heure</th><th class="success">Detail du push</th></tr>';
 				$("#delete-push").append(head);
@@ -65,7 +65,7 @@ function getAllNotifications(){
 		headers:headers,
 		success: function (data, status, jqXHR) {
 			
-			data.results.sort(SortByName);
+			data.results.sort(sortByDate);
 			
 			for(var i in data.results){
 				var deletePush = '<tr><td><input type="checkbox" id='+data.results[i].objectId+'></td><td>'+data.results[i].updatedAt.substring(0,10)+
@@ -89,7 +89,7 @@ function getAllNotificationsForChannelHisto(channel){
 		headers:headers,
 		success: function (data, status, jqXHR) {
 			
-			data.results.sort(SortByName);
+			data.results.sort(sortByDate);
 			
 			for(var i in data.results){
 				var Push = '<tr><td>'+data.results[i].updatedAt.substring(0,10)+
@@ -185,13 +185,13 @@ function actualise_div(channel) {
 }
 
 function delete_p(){
-	 
-	deletePush();
-	setTimeout(function(){alert('Les pushs ont été supprimés avec succès !');},800);
-	setTimeout(function(){actualise_div(channel);},1500);
-
+	if(confirm('Etes-vous sur de vouloir supprimer les push sélectionnés ?')) { 
+		deletePush();
+		setTimeout(function(){alert('Les pushs ont été supprimés avec succès !');},800);
+		setTimeout(function(){actualise_div(channel);},1500);
+	}
 }
 
-function SortByName(x,y) {
+function sortByDate(x,y) {
     return ((x.createdAt == y.createdAt) ? 0 : ((x.createdAt < y.createdAt) ? 1 : -1 ));
   }
