@@ -27,11 +27,11 @@
 	}
 	 
 	function checkAll(){
-		  $(":checkbox").attr('checked', true);
+		  $(":checkbox").prop('checked', true);
 	}
 	
 	function uncheckAll(){
-		  $(":checkbox").attr('checked', false);
+		  $(":checkbox").prop('checked', false);
 	}
 	
 	function stats(channel){
