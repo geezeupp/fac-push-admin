@@ -18,6 +18,7 @@
 	<script src="../js/login-logout.js"></script>
     <script src="../js/rest-services.js"></script>
     <script src="../js/utils.js"></script>
+    <!-- Chargement des scripts au chargement de la page -->
 	<script type="text/javascript">
       window.onpaint = preloadFunc();
       $(document).ready(function(){ 
@@ -25,7 +26,6 @@
     	  channel = $("#user-channel").attr('placeholder');
     	  getAllNotificationsForChannel(channel);	    	 
     	});
-      
 	</script>
   </head>
   <body>
@@ -96,6 +96,7 @@
 									<textarea id="message" class="form-control" rows="10" cols="80" placeholder="Votre message"></textarea>
 								</div> 
 							</div><br>
+							<!-- Bouton envoyer -->
 							<div class="row">
 								<div class="col-xs-6 col-sm-3">
 									<button class="btn btn-primary" onclick="return sendPush()">Envoyer <i class="icon-white icon-ok-sign"></i> </button>
