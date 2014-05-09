@@ -118,11 +118,11 @@ function savePushNotification(title,channel){
 			    dataType: "json",
 				headers:headers,
 				success: function (data, status, jqXHR) {
-							
+					 	alert('Notification sauvegadée');
 						 },
 					 
 				error: function (jqXHR, status) {            
-							 alert('error');
+							 alert('Error : Unable to save notification');
 						}
 
 				 });
@@ -144,7 +144,7 @@ function deletePush(){
 							 },
 						 
 					error: function (jqXHR, status) {            
-								 alert('error');
+								 alert('Error : Unable to delete notification');
 							}
 
 					 });
