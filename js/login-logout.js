@@ -45,7 +45,7 @@ function signUp(){
 			    dataType: "json",
 				headers:headers,
 				success: function (data, status, jqXHR) {
-							alert('it works');
+							alert('Vous etes bien inscrit pour envoyer des notifications');
 						 },
 					 
 				error: function (jqXHR, status) {            
